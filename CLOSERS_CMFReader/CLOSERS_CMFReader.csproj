@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Background1.PNG" />
+    <None Remove="Background2.PNG" />
+    <None Remove="icon.ico" />
+    <None Remove="icon.PNG" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Closers-CMF\CMF-Sharp\CMF-Sharp.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Background1.PNG" />
+    <Resource Include="Background2.PNG" />
+    <Resource Include="icon.ico" />
+    <Resource Include="icon.PNG" />
+  </ItemGroup>
+
+</Project>

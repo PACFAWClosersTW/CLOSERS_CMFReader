@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "3ulwM9U/oTaBfHWgYLED5lyn3P1/ZdP9wbqdUCrM9FzRNv0w4p0G/mCkw3SZsgYMB1eE+46ZYZ7Lg+6nKEpGmg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\USER\\Downloads\\CLOSERS_CMFReader-Yuri\\CLOSERS_CMFReader\\CLOSERS_CMFReader.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\USER\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.18\\microsoft.netcore.app.host.win-x64.3.1.18.nupkg.sha512"
+  ],
+  "logs": []
+}
