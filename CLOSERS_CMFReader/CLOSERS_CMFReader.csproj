@@ -12,7 +12,6 @@
     <None Remove="Background1.PNG" />
     <None Remove="Background2.PNG" />
     <None Remove="icon.ico" />
-    <None Remove="icon.PNG" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,7 +22,6 @@
     <Resource Include="Background1.PNG" />
     <Resource Include="Background2.PNG" />
     <Resource Include="icon.ico" />
-    <Resource Include="icon.PNG" />
   </ItemGroup>
 
 </Project>

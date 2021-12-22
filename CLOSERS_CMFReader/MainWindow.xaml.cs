@@ -28,7 +28,7 @@ namespace CLOSERS_CMFReader
         public List<string> CMF_files = new List<string>();
         public string Unpacking_file;
         public List<UnpackList> items = new List<UnpackList>();
-        public List<string> SelectCMF_file = new List<string>();
+        public List<UnpackList> SelectCMF_file = new List<UnpackList>();
         private string motion;
 
         public MainWindow()
@@ -41,24 +41,27 @@ namespace CLOSERS_CMFReader
 
         private void UnpackCMF_btn_Click(object sender, RoutedEventArgs e)
         {
+            motion = "Unpacking";
             archive = null;
+            ShowOutputWin OutputWindows = new ShowOutputWin(motion, CMF_files, CMF_files.Count);
+            OutputWindows.Show();
+            /*
             if (CMFListView.SelectedItems.Count > 0)
             {
-                motion = "UnpackingSelect";
                 for (int i = 0; i < CMFListView.SelectedItems.Count; i++)
                 {
                     UnpackList SelectCMF = (UnpackList)CMFListView.SelectedItems[i];
-                    SelectCMF_file.Add(SelectCMF.File + "," + SelectCMF.Name);
+                    SelectCMF_file.Add(SelectCMF);
                 }
-                ShowOutputWin OutputWindows = new ShowOutputWin(motion, SelectCMF_file, SelectCMF_file.Count);
+                ShowOutputWin OutputWindows = new ShowOutputWin(motion, CMF_files, items.Count);
                 OutputWindows.Show();
             }
             else
             {
-                motion = "Unpacking";
                 ShowOutputWin OutputWindows = new ShowOutputWin(motion, CMF_files, items.Count);
                 OutputWindows.Show();
             }
+            */
         }
 
         private void PackFile_btn_Click(object sender, RoutedEventArgs e)
@@ -69,7 +72,6 @@ namespace CLOSERS_CMFReader
 
         private void ReadCMF_btn_Click(object sender, RoutedEventArgs e)
         {
-            ReadCMF_btn.IsEnabled = false;
             UnpackCMF_btn.IsEnabled = true;
             UnpackCMFRecord_btn.IsEnabled = true;
             OpenFileDialog ReadCMF = new OpenFileDialog();
@@ -126,13 +128,10 @@ namespace CLOSERS_CMFReader
         {
             for (int i = 0; i < archive.FileCount; i++)
             {
-                items.Add(new UnpackList()
-                {
-                    File = Unpacking_file,
-                    Name = new Classes.File(archive.Entries[i]).Name,
-                    Size = new Classes.File(archive.Entries[i]).SizeInString,
-                    Type = new Classes.File(archive.Entries[i]).Type
-                });
+                items.Add(new UnpackList() { File = Unpacking_file,
+                                             Name = new Classes.File(archive.Entries[i]).Name,
+                                             Size = new Classes.File(archive.Entries[i]).SizeInString,
+                                             Type = new Classes.File(archive.Entries[i]).Type});
             }
             CMFList_Update();
         }
@@ -152,7 +151,6 @@ namespace CLOSERS_CMFReader
         {
             archive = null;
             CMF_files.Clear();
-            ReadCMF_btn.IsEnabled = true;
             UnpackCMF_btn.IsEnabled = false;
             UnpackCMFRecord_btn.IsEnabled = false;
             CMFListView.ItemsSource = null;
